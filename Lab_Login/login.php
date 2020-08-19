@@ -1,9 +1,17 @@
 <?php
 session_start();
-if(isset($_POST["btnOK"])){
-  echo($_POST["txtUserName"]);
-  echo($_POST["txtPassword"]);
-  header("Location: index.php");
+//登出動作
+if (isset($_SESSION["txtUserName"])) {
+  unset($_SESSION["txtUserName"]);
+  unset($_SESSION["txtPassword"]);
+  header("Location: {$_SESSION['from']}");
+  exit();
+}
+//登入驗證
+if (isset($_POST["btnOK"])) {
+  $_SESSION["txtUserName"] = $_POST["txtUserName"];
+  $_SESSION["txtPassword"] = $_POST["txtPassword"];
+  header("Location: {$_SESSION['from']}");
   exit();
 }
 ?>
