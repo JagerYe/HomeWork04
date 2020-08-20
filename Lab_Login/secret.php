@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["from"] = substr(__FILE__, strrpos(__FILE__, "\\") + 1);
+require_once 'sourcePage.php';
 if (!isset($_SESSION["txtUserName"])) {
   header("Location: login.php");
   exit();

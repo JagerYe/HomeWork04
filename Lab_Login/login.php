@@ -14,6 +14,11 @@ if (isset($_POST["btnOK"])) {
   header("Location: {$_SESSION['from']}");
   exit();
 }
+//回首頁
+if(isset($_POST["btnHome"])){
+  header("Location: index.php");
+  exit();
+}
 ?>
 <html>
 
